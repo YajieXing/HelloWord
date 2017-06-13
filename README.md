@@ -26,3 +26,31 @@ Git在.git 文件夹下面存放了index文件，该文件表示Git stage的内�
 
 **git add** 实际上做的事
 把文件内容计算出hash值作为key，把文件内容压缩后作为value，存放到objects目录里面，然后把对应文件信息放到index文件中
+
+## Git常用操作
+
+**git reset**
+
+用于回退版本，可以指定退回某一次提交的版本。
+
+–-soft:回退到暂存区。
+
+-–hard:回退到工作目录。 
+
+```
+git reset HEAD .
+```
+
+**git commit**
+
+```
+git commit -m ‘更新内容’
+```
+
+**git checkout** 
+切换分支
+重新存储工作区文件
+
+```
+git checkout master
+```
