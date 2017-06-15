@@ -54,3 +54,29 @@ git commit -m ‘更新内容’
 ```
 git checkout master
 ```
+
+# Git 使用
+
+cd /Users/xyj/Desktop/dnf
+git init
+git config user.email
+git config user.name 
+git config user.name xyj
+git add . //点指的是当前目录
+git commit -m 'add 前三行'
+git log --oneline --decorate --graph --stat  // 查看提交信息
+//修改文件 
+git add . //点指的是当前目录
+git commit -m 'add 第四行'
+git log --oneline --decorate --graph --stat
+git reset --hard HEAD~1  // 回退到工作目录，修改的代码会丢失
+git log --oneline --decorate --graph --stat
+//再次修改文件
+git add . 
+git commit -m '第五行'
+git log --oneline --decorate --graph --stat
+git reset --soft HEAD~1 //回退到暂存区，修改的内容还在本地
+git status //查看状态
+git reset HEAD .  // 从暂存区移出，git add的逆向操作
+git checkout -- . // 重新存储工作区文件，此时恢复到第一次提交的文件状态
+
