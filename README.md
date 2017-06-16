@@ -80,3 +80,24 @@ git status //查看状态
 git reset HEAD .  // 从暂存区移出，git add的逆向操作
 git checkout -- . // 重新存储工作区文件，此时恢复到第一次提交的文件状态
 
+git cat-file -p 0e3760631ad12cf235be3f2a13fbd98cae3c1fab 根据key找对应文件
+
+git ls-files -s //查看暂存区具体信息
+
+git hash-object -w test.text
+    git hash-object 计算一个文件的git对象ID，即SHA1的哈希值
+    将制定对象写入数据库
+
+git update-index --add --cacheinfo 100644 582f5e8a8956d7bf05eebf0370211c4814d6f6da test.text
+    git update-index 讲工作目录的文件加入索引/暂存区域
+    --add 添加指定文件
+    --cacheinfo 按照格式将指定的信息
+
+git write-tree 生成当前的树
+
+git read-tree --prefix=dnf/ 4e9ccdacc6720dd0851c93f0c52a4f8ff2170775
+手动生成一个树dnf/，并将之前生成的树放在dnf里面
+
+git write-tree 4d4fcd1cac25427d51a54ac6d730bcd3d9dac41a
+
+git checkout -- dnf/ 将生成的树从暂存区恢复到文件内
