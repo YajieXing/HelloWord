@@ -101,3 +101,14 @@ git read-tree --prefix=dnf/ 4e9ccdacc6720dd0851c93f0c52a4f8ff2170775
 git write-tree 4d4fcd1cac25427d51a54ac6d730bcd3d9dac41a
 
 git checkout -- dnf/ 将生成的树从暂存区恢复到文件内
+
+## git key-value文件系统
+根据修改的文件进行hash，将hash值作为key，将文件作为value，存放到.git
+
+Git将存储对象的40位HASH分为两部分
+    1、前两位作为文件夹
+    2、后面38位作为对象文件名，路径文 .git/objects/hash[:2]/hash[2:40]
+
+为什么这么设计
+    1、部分文件系统对目录下的文件数量有限制，
+    2、部分文件系统查找文件属于线性查找，目录下文件越多，访问速度越慢
